@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+<meta charset="UTF-8">
+<title>UPC-WEB</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
+</head>
+<body>
+
+	<div class="container" align="center">
+
+		<div class="card border-light text-center">
+			<div class="card-body" align="center">
+				<form th:action="@{/login}" method="post">
+
+					<div class="col-sm-6" style="margin-top: 50px;">
+						<img th:src="@{/img/logo.png}" height="35%" width="35%" />
+					</div>
+
+					<div class="col-sm-4" style="margin: 10px;">
+						<input type="text" name="username" id="username"
+							class="form-control" placeholder="usuario" autofocus required />
+					</div>
+
+					<div class="col-sm-4" style="margin: 10px;">
+						<input type="password" name="password" id="password"
+							class="form-control" placeholder="clave" required />
+					</div>
+
+					<div class="col-sm-3">
+						<input style="margin: 10px; background: #206A5D" type="submit"
+							class="btn btn-outline-light" value="Ingresar" />
+					</div>
+
+					<a>¿No tiene una cuenta?</a> <a th:href="@{/users/registro}" class="outline-success" style="color: #206A5D">Registrate</a>
+ 
+				</form>
+
+			</div>
+		</div>
+
+		<div align="center" class="col-sm-6">
+			<div class="alert alert-success" th:if="${success != null}"
+				th:text="${success}"></div>
+			<div class="alert alert-danger" th:if="${error != null}"
+				th:text="${error}"></div>
+			<div class="alert alert-info" th:if="${info != null}"
+				th:text="${info}"></div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

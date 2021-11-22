@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>FICO</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/dive.css">
+</head>
+<body>
+
+	<div th:fragment="sidebar" id="panel" class="activepanel "
+		style="background: #206A5D; color: #EBECF1; width: 20%;">
+		<div id="cpanel1head" style="margin: 20px; height: 2%; width: 100%"
+			class="row">
+			<h2 id="titulopanel" class="col-lg-10" style="color: white;">Bienvenido</h2>
+			<i id="iconpanel" class="fa fa-bars col-lg-2"></i>
+		</div>
+		<div id="cpanelbody" class="row">
+
+
+			<div class="panelitem">
+				<a th:href="@{/users/home}"> <i class="fa fa-home"
+					style="color: white;"></i>
+				</a>
+				<p>Inicio</p>
+			</div>
+
+			<div class="panelitem">
+				<a th:href="@{/institutions/list}"> <i class="fa fa-building"
+					style="color: white;"></i>
+				</a>
+				<p>Institution</p>
+			</div>
+
+			<div class="panelitem" sec:authorize="hasRole('ROLE_ADMIN')">
+				<a th:href="@{/categories/list}"> <i class="fa fa-folder"
+					style="color: white;"></i>
+				</a>
+				<p>Categorias</p>
+			</div>
+
+			<div class="panelitem" sec:authorize="hasRole('ROLE_ADMIN')">
+				<a th:href="@{/products/list}"> <i class="fa fa-cube"
+					style="color: white;"></i>
+				</a>
+				<p>Producto</p>
+			</div>
+
+			<div class="panelitem" sec:authorize="hasRole('ROLE_ADMIN')">
+				<a th:href="@{/products/listPopular}"> <i class="fa fa-star"
+					style="color: white;"></i>
+				</a>
+				<p>Productos Populares</p>
+			</div>
+
+			<div class="panelitem">
+				<a th:href="@{/creditCards/list}"> <i class="fa fa-credit-card"
+					style="color: white;"></i>
+				</a>
+				<p>Tarjeta de Credito</p>
+			</div>
+
+			<div class="panelitem">
+				<a th:href="@{/afps/list}"> <i class="fa fa-heart"
+					style="color: white;"></i>
+				</a>
+				<p>AFP</p>
+			</div>
+
+			<div class="panelitem">
+				<a th:href="@{/loans/list}"> <i class="fa fa-money"
+					style="color: white;"></i>
+				</a>
+				<p>Prestamos</p>
+			</div>
+
+			<div class="panelitem">
+				<a th:href="@{/savingaccounts/list}"> <i class="fa fa-money"
+					style="color: white;"></i>
+				</a>
+				<p>Cuentas de Ahorro</p>
+			</div>
+
+			<div class="panelitem" sec:authorize="hasRole('ROLE_ADMIN')">
+				<a th:href="@{/users/list}"> <i class="fa fa-user"
+					style="color: white;"></i>
+				</a>
+				<p>Usuarios</p>
+			</div>
+			<div class="panelitem" sec:authorize="hasRole('ROLE_ADMIN')">
+				<a th:href="@{/roles/list}"> <i class="fa fa-users"
+					style="color: white;"></i>
+				</a>
+				<p>Roles</p>
+			</div>
+
+			<div class="panelitem" sec:authorize="hasRole('ROLE_ADMIN')">
+				<a th:href="@{/roles/reportes}"> <i class="fa fa-users"
+					style="color: white;"></i>
+				</a>
+				<p>Reportes</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
